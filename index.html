@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- font -->
+    <link rel="stylesheet" href="https://use.typekit.net/ohe0uar.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hina+Mincho&family=IBM+Plex+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Grande Maison LaBaie</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <nav>
+          <h1 class="logo">
+            <a href="#"><img src="./image/logo1.png" alt="" /></a>
+          </h1>
+          <ul class="menu">
+            <li v-for="item in menu"><a href="#">{{item}}</a></li>
+          </ul>
+        </nav>
+        <div class="mainPage titleFont">
+          <img class="img" src="./image/sakum_yellow.webp" alt="" />
+          <div class="title titleFont">
+            <h2>France</h2>
+            <h2>to Table</h2>
+            <p><a href="#">See Our Menu ></a></p>
+          </div>
+        </div>
+      </header>
+      <main>
+        <section class="sectionAbout">
+          <div class="aboutImage">
+            <img src="./image/about1.jpg" alt="" />
+            <img src="./image/about2.jpg" alt="" />
+            <img src="./image/about3.jpg" alt="" />
+          </div>
+          <div class="aboutContents">
+            <h4 class="titleFont">About<br />La Baie</h4>
+            <p>
+              ラベのドアを開けてお迎えする時、<br />
+              「いらっしゃませ」とは申し上げないことが多いのです。<br />
+              よくいらっしゃいました、の思いを込めて<br />
+              「こんにちは」「こんばんは」と笑顔でお迎えします。
+            </p>
+          </div>
+        </section>
+        <section class="sectionReserve">
+          <div class="bg"></div>
+          <div class="reserve titleFont">
+            <p>Reserve a Table</p>
+            <div class="input">
+              <select name="" id="">
+                <option v-for="guests in guestsOption" value="">
+                  {{guests}}
+                </option>
+              </select>
+              <input type="date" placeholder="MM/DD/YY" />
+              <select name="" id="">
+                <option v-for="time in timeOption" value="">{{time}}</option>
+              </select>
+              <button>find a table</button>
+            </div>
+          </div>
+        </section>
+        <section class="sectionBlog">
+          <p class="titleFont">blog</p>
+          <div class="blogs">
+            <div v-for="blog in blogs" class="blogCards">
+              <img :src="blog.image" alt="" />
+              <div class="blogContents">
+                <h3>{{blog.title}}</h3>
+                <div class="date">{{blog.date}}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <div class="copy">
+          <div class="copy-left">
+            <div class="footerContents">
+              <p class="footerTitle">OPNNING HOURS</p>
+
+              <p>lunch 11:30~14:00</p>
+              <p>dinner 17:30~21:00</p>
+            </div>
+            <div class="footerContents holiday">
+              <p>定休日:月曜日(月曜祝日の場合火曜日)</p>
+              <p>パーキングあり(10台)</p>
+            </div>
+          </div>
+          <div class="copy-right">
+            <div class="footerContents">
+              <p class="footerTitle">ADRESS</p>
+              <p>tokyo sinjyuku marumaru 1-23-4</p>
+            </div>
+            <div class="footerContents">
+              <p class="footerTitle">CONTACT</p>
+              <p>123-1234-1234</p>
+              <p>info@halmail.com</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const { createApp } = Vue;
+      const app = createApp({
+        data() {
+          return {
+            menu: ['About', 'Menu', 'Reservations', 'Contect'],
+            timeOption: [
+              '11:30',
+              '12:00',
+              '12:30',
+              '13:00',
+              '13:30',
+              '14:00',
+              '17:30',
+              '18:00',
+              '18:30',
+              '19:00',
+              '19:30',
+              '20:00',
+            ],
+            guestsOption: [
+              '1 guset',
+              '2 guests',
+              '3 guests',
+              '4 guests',
+              '5 guests',
+              '6 guests',
+            ],
+            blogs: [
+              {
+                title: '横浜山手より。',
+                date: '2023/04/13',
+                image: './image/blog1.jpeg',
+              },
+              {
+                title: 'ラベシェフ日記。No01',
+                date: '2023/04/11',
+                image: './image/blog2.jpeg',
+              },
+              {
+                title: '春のメニュー。',
+                date: '2023/04/07',
+                image: './image/blog3.jpeg',
+              },
+            ],
+          };
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+</html>
