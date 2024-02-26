@@ -72,7 +72,7 @@
                   {{guests}}
                 </option>
               </select>
-              <input type="date" placeholder="MM/DD/YY" />
+              <input type="date" />
               <select name="" id="">
                 <option v-for="time in timeOption" value="">{{time}}</option>
               </select>
@@ -81,7 +81,7 @@
           </div>
         </section>
         <section class="sectionBlog">
-          <p class="titleFont">blog</p>
+          <p class="titleFont">Blog</p>
           <div class="blogs">
             <div v-for="blog in blogs" class="blogCards">
               <img :src="blog.image" alt="" />

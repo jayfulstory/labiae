@@ -141,6 +141,10 @@ main {
       }
     }
     .aboutContents {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transform: translateY(-15%);
       color: var(--main-color-blue);
       width: 45%;
       height: 100%;
